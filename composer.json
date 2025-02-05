@@ -1,0 +1,18 @@
+{
+    "name": "your-name/mvc-framework",
+    "description": "Framework MVC PHP moderne avec Eloquent",
+    "type": "project",
+    "require": {
+        "php": "^8.1",
+        "illuminate/database": "^10.0",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.0"
+    }
+}
