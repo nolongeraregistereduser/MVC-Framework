@@ -21,7 +21,10 @@ App\Core\Session::start();
 
 // Ajouter la route par défaut
 use App\Controllers\Front\HomeController;
+use App\Controllers\Front\ContactController;
+
 App\Core\Router::add('GET', '/', [HomeController::class, 'index']);
+App\Core\Router::add('GET', '/contact', [ContactController::class, 'index']);
 
 // Router
 App\Core\Router::dispatch();
