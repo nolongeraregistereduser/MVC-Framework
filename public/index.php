@@ -19,12 +19,8 @@ new App\Core\Database();
 // Démarrer la session
 App\Core\Session::start();
 
-// Ajouter la route par défaut
-use App\Controllers\Front\HomeController;
-use App\Controllers\Front\ContactController;
+// Charger les routes
+require_once __DIR__ . '/../config/routes.php';
 
-App\Core\Router::add('GET', '/', [HomeController::class, 'index']);
-App\Core\Router::add('GET', '/contact', [ContactController::class, 'index']);
-
-// Router
+// Dispatcher les routes
 App\Core\Router::dispatch();
