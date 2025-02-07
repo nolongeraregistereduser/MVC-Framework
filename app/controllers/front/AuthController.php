@@ -83,4 +83,10 @@ class AuthController extends Controller
             ]);
         }
     }
+
+    public function logout()
+    {
+        Session::destroy();
+        $this->redirect('/MVC-Framework/public/');
+    }
 } 

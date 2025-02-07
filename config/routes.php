@@ -16,6 +16,7 @@ Router::add('GET', '/register', [AuthController::class, 'showRegister']);
 Router::add('POST', '/register', [AuthController::class, 'register']);
 Router::add('GET', '/login', [AuthController::class, 'showLogin']);
 Router::add('POST', '/login', [AuthController::class, 'login']);
+Router::add('GET', '/logout', [AuthController::class, 'logout']);
 
 // Routes Dashboard
 Router::add('GET', '/admin/dashboard', [AdminDashboard::class, 'index']);
