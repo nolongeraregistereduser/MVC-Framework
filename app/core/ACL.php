@@ -7,6 +7,7 @@ class ACL
     // Définir les permissions pour chaque rôle
     private static array $permissions = [
         'admin' => [
+            'dashboard' => ['view', 'edit'],
             'articles' => ['view', 'create', 'edit', 'delete'],
             'users' => ['view', 'create', 'edit', 'delete'],
             'settings' => ['view', 'edit']
