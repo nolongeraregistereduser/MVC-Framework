@@ -10,7 +10,7 @@
             </div>
         <?php endif; ?>
 
-        <form method="POST" action="/MVC-Framework/public/login">
+        <form method="POST" action="/login">
             <!-- CSRF Token -->
             <input type="hidden" name="csrf_token" value="<?= Security::generateCsrfToken() ?>">
             

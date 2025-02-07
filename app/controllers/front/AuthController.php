@@ -34,7 +34,7 @@ class AuthController extends Controller
             ]);
 
             // Rediriger vers la page de connexion
-            $this->redirect('/MVC-Framework/public/');
+            $this->redirect('/MVC-Framework/');
         } catch (\Exception $e) {
             // Afficher l'erreur réelle pour le débogage
             View::render('front/auth/register', [
@@ -86,9 +86,9 @@ class AuthController extends Controller
 
                 // Redirection selon le rôle
                 if ($user->role === 'admin') {
-                    $this->redirect('/MVC-Framework/public/admin/dashboard');
+                    $this->redirect('/admin/dashboard');
                 } else {
-                    $this->redirect('/MVC-Framework/public/user/dashboard');
+                    $this->redirect('/user/dashboard');
                 }
             } else {
                 View::render('front/auth/login', [
@@ -107,6 +107,6 @@ class AuthController extends Controller
     public function logout()
     {
         Session::destroy();
-        $this->redirect('/MVC-Framework/public/');
+        $this->redirect('/');
     }
 } 
