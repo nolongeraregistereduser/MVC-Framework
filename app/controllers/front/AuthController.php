@@ -5,6 +5,7 @@ namespace App\Controllers\Front;
 use App\Core\Controller;
 use App\Core\View;
 use App\Core\Session;
+use App\Core\Security;
 use App\Models\User;
 
 class AuthController extends Controller
@@ -52,8 +53,27 @@ class AuthController extends Controller
 
     public function login()
     {
-        $email = $_POST['email'] ?? '';
+        // Vérifier le CSRF token
+        if (!Security::validateCsrfToken($_POST['csrf_token'] ?? null)) {
+            View::render('front/auth/login', [
+                'title' => 'Connexion',
+                'error' => 'Token de sécurité invalide'
+            ]);
+            return;
+        }
+
+        // Sanitize et valider les entrées
+        $email = Security::sanitizeInput($_POST['email'] ?? '');
         $password = $_POST['password'] ?? '';
+
+        // Valider l'email
+        if (!Security::validateEmail($email)) {
+            View::render('front/auth/login', [
+                'title' => 'Connexion',
+                'error' => 'Format d\'email invalide'
+            ]);
+            return;
+        }
 
         try {
             $user = User::where('email', $email)->first();
@@ -79,7 +99,7 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             View::render('front/auth/login', [
                 'title' => 'Connexion',
-                'error' => 'Erreur: ' . $e->getMessage()
+                'error' => 'Une erreur est survenue'
             ]);
         }
     }

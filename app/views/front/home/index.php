@@ -5,7 +5,7 @@
                 <div class="card-body text-center">
                     <h1 class="card-title mb-4">Bienvenue sur notre Framework MVC</h1>
                     <p class="card-text">
-                        Un framework PHP moderne et simple pour vos projets web.
+                        Un framework PHP moderne et simple made by Lorenz Cipher.
                     </p>
                     <hr>
                     <div class="mt-4">
