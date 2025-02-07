@@ -22,7 +22,8 @@ class Security
         return hash_equals(Session::get('csrf_token'), $token);
     }
 
-    // Protection XSS
+    // Protection XSS fl forms 
+    
     public static function escape($data)
     {
         if (is_array($data)) {
